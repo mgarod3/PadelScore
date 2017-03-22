@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Small margins -->
+    <dimen name="small_horizontal_margin">8dp</dimen>
+    <dimen name="small_vertical_margin">8dp</dimen>
+
+    <!--  Paddings. -->
+    <dimen name="horizontal_padding">16dp</dimen>
+    <dimen name="vertical_padding">16dp</dimen>
+    <dimen name="medium_vertical_padding">12dp</dimen>
+
+    <!-- Text Sizes. -->
+    <dimen name="text_team_scores">58sp</dimen>
+    <dimen name="text_game_set_scores">54sp</dimen>
+    <dimen name="text_titles">18dp</dimen>
+    <dimen name="text_buttons">14dp</dimen>
+    <dimen name="text_alerts">18dp</dimen>
+
+    <!-- Line width. -->
+    <dimen name="line_width">1dp</dimen>
+
+</resources>

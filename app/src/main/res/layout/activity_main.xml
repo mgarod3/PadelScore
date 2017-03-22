@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/padel"
+    tools:context="com.example.android.padelscore.MainActivity">
+
+
+    <!-- Main Vertical Layout -->
+
+    <LinearLayout style="@style/PrincipalLayout">
+
+        <!-- Horizontal Layout Score - Both Team Names, Team Scores and Point Buttons -->
+
+        <LinearLayout style="@style/LayoutScore">
+
+            <!-- Vertical Layout Score - A Team Name and Score and Point Button -->
+
+            <LinearLayout style="@style/LayoutTeams">
+
+                <TextView
+                    style="@style/TeamName"
+                    android:text="@string/team_a" />
+
+                <RelativeLayout style="@style/Intermedio2">
+
+                    <TextView
+                        android:id="@+id/team_a_score"
+                        style="@style/TeamScores"
+                        android:text="@string/initial_score" />
+
+                    <TextView
+                        android:id="@+id/team_a_alerts"
+                        style="@style/AlertsTeam"
+                        android:text=""
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/point_button_a"
+                    style="@style/TeamButtons"
+                    android:onClick="pointForTeamA"
+                    android:text="@string/point_button" />
+
+            </LinearLayout>
+
+            <!-- Line separating both team Names, Scores and Point Buttons -->
+
+            <View
+                android:id="@+id/myview"
+                style="@style/MyViewVertical">
+
+            </View>
+
+            <!-- Vertical Layout Score - B Team Name and Score and Point Button -->
+
+            <LinearLayout style="@style/LayoutTeams">
+
+                <TextView
+                    style="@style/TeamName"
+                    android:text="@string/team_b" />
+
+                <RelativeLayout style="@style/Intermedio2">
+
+                    <TextView
+                        android:id="@+id/team_b_score"
+                        style="@style/TeamScores"
+                        android:text="@string/initial_score" />
+
+                    <TextView
+                        android:id="@+id/team_b_alerts"
+                        style="@style/AlertsTeam"
+                        android:text=""
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/point_button_b"
+                    style="@style/TeamButtons"
+                    android:onClick="pointForTeamB"
+                    android:text="@string/point_button" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Horizontal Layout for New Buttons -->
+
+        <LinearLayout style="@style/LayoutHorizontal">
+
+            <Button
+                android:id="@+id/new_game_button"
+                style="@style/NewButtons"
+                android:onClick="newGame"
+                android:text="@string/new_game_button" />
+
+            <Button
+                android:id="@+id/new_set_button"
+                style="@style/NewButtons"
+                android:onClick="newSet"
+                android:text="@string/new_set_button" />
+
+            <Button
+                style="@style/NewButtons"
+                android:onClick="newMatch"
+                android:text="@string/new_match_button" />
+
+        </LinearLayout>
+
+        <!-- Horizontal Layout for Games and Sets -->
+
+        <LinearLayout style="@style/HLayoutGameSet">
+
+            <!-- Vertical Layout for Games Textview and Score -->
+
+            <LinearLayout style="@style/LayoutGame">
+
+
+                <TextView
+                    style="@style/GameSetTitles"
+                    android:text="@string/games" />
+
+
+                <View
+                    android:id="@+id/myview4"
+                    style="@style/MyViewHorizontal">
+
+                </View>
+
+
+                <!-- Horizontal Layout For Games Score -->
+
+                <LinearLayout style="@style/GameSetScore">
+
+                    <TextView
+                        android:id="@+id/game_a_score"
+                        style="@style/GameSetScore"
+                        android:text="@string/initial_score" />
+
+                    <View
+                        android:id="@+id/myview2"
+                        style="@style/MyViewVerticalSmall">
+
+                    </View>
+
+                    <TextView
+                        android:id="@+id/game_b_score"
+                        style="@style/GameSetScore"
+                        android:text="@string/initial_score" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Vertical Layout For Set TextView and Score -->
+
+            <LinearLayout style="@style/LayoutSet">
+
+
+                <TextView
+                    style="@style/GameSetTitles"
+                    android:text="@string/sets" />
+
+
+                <View
+                    android:id="@+id/myview5"
+                    style="@style/MyViewHorizontal">
+
+                </View>
+
+
+                <!-- Horizontal Layout For Set Score -->
+
+                <LinearLayout style="@style/GameSetScore">
+
+                    <TextView
+                        android:id="@+id/set_a_score"
+                        style="@style/GameSetScore"
+                        android:text="@string/initial_score" />
+
+                    <View
+                        android:id="@+id/myview3"
+                        style="@style/MyViewVerticalSmall">
+
+                    </View>
+
+                    <TextView
+                        android:id="@+id/set_b_score"
+                        style="@style/GameSetScore"
+                        android:text="@string/initial_score" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
