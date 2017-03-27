@@ -18,6 +18,19 @@ public class MainActivity extends AppCompatActivity {
     int numTotalSets = 3;
     String alertMessage = "";
 
+    Button buttonGame;
+    Button buttonSet;
+    Button buttonPointA;
+    Button buttonPointB;
+    TextView scoreViewA;
+    TextView scoreViewB;
+    TextView alertViewA;
+    TextView alertViewB;
+    TextView scoreGameA;
+    TextView scoreGameB;
+    TextView scoreSetA;
+    TextView scoreSetB;
+
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -27,35 +40,31 @@ public class MainActivity extends AppCompatActivity {
         boolean setButtonEnable;
         boolean pointButtonEnable;
 
-        TextView alertViewA = (TextView) findViewById(R.id.team_a_alerts);
         if (alertViewA.getVisibility() == View.VISIBLE) {
             visibilityA = true;
         } else {
             visibilityA = false;
         }
-        TextView alertViewB = (TextView) findViewById(R.id.team_b_alerts);
+
         if (alertViewB.getVisibility() == View.VISIBLE) {
             visibilityB = true;
         } else {
             visibilityB = false;
         }
 
-        Button buttonA = (Button) findViewById(R.id.new_game_button);
-        if (buttonA.isEnabled()) {
+        if (buttonGame.isEnabled()) {
             gameButtonEnable = true;
         } else {
             gameButtonEnable = false;
         }
 
-        Button buttonB = (Button) findViewById(R.id.new_set_button);
-        if (buttonB.isEnabled()) {
+        if (buttonSet.isEnabled()) {
             setButtonEnable = true;
         } else {
             setButtonEnable = false;
         }
 
-        Button buttonC = (Button) findViewById(R.id.point_button_a);
-        if (buttonC.isEnabled()) {
+        if (buttonPointA.isEnabled()) {
             pointButtonEnable = true;
         } else {
             pointButtonEnable = false;
@@ -152,6 +161,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        buttonGame = (Button) findViewById(R.id.new_game_button);
+        buttonSet = (Button) findViewById(R.id.new_set_button);
+        buttonPointA = (Button) findViewById(R.id.point_button_a);
+        buttonPointB = (Button) findViewById(R.id.point_button_b);
+        scoreViewA = (TextView) findViewById(R.id.team_a_score);
+        scoreViewB = (TextView) findViewById(R.id.team_b_score);
+        alertViewA = (TextView) findViewById(R.id.team_a_alerts);
+        alertViewB = (TextView) findViewById(R.id.team_b_alerts);
+        scoreGameA = (TextView) findViewById(R.id.game_a_score);
+        scoreGameB = (TextView) findViewById(R.id.game_b_score);
+        scoreSetA = (TextView) findViewById(R.id.set_a_score);
+        scoreSetB = (TextView) findViewById(R.id.set_b_score);
+
         if (savedInstanceState == null) {
             disableNewSetButton();
             disableNewGameButton();
@@ -193,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
             alertMessage = "Advantage A";
             displayAlertForTeamA(alertMessage);
             alertInvisible("B");
-
         } else if (alertMessage.equals("Advantage B")) {
             displayDeuce();
         } else {
@@ -207,7 +228,6 @@ public class MainActivity extends AppCompatActivity {
         String team = "B";
 
         if (scoreTeamB < 40) {
-
             switch (scoreTeamB) {
                 case 0:
                     scoreTeamB = 15;
@@ -225,7 +245,6 @@ public class MainActivity extends AppCompatActivity {
             if (scoreTeamA == 40 && scoreTeamB == 40) {
                 displayDeuce();
             }
-
         } else if (alertMessage.equals("")) {
 
             alertVisible(team);
@@ -247,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     //Shows messages on screen
 
     public void showMessage(String message) {
@@ -262,30 +280,26 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team A.
      */
     public void displayForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
-        scoreView.setText(String.valueOf(score));
+        scoreViewA.setText(String.valueOf(score));
     }
 
     /**
      * Displays the given score for Team B.
      */
     public void displayForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
-        scoreView.setText(String.valueOf(score));
+        scoreViewB.setText(String.valueOf(score));
     }
 
     // Displays alert message above Team A score
 
     public void displayAlertForTeamA(String AlertMessage) {
-        TextView alertView = (TextView) findViewById(R.id.team_a_alerts);
-        alertView.setText(String.valueOf(AlertMessage));
+        alertViewA.setText(String.valueOf(AlertMessage));
     }
 
     // Displays alert message above Team B score
 
     public void displayAlertForTeamB(String AlertMessage) {
-        TextView alertView = (TextView) findViewById(R.id.team_b_alerts);
-        alertView.setText(String.valueOf(AlertMessage));
+        alertViewB.setText(String.valueOf(AlertMessage));
     }
 
     // Display message "Game Winner" above the winner score and shows instructions on screen
@@ -416,15 +430,13 @@ public class MainActivity extends AppCompatActivity {
 
     // Displays the games score for Team A.
     public void displayGamesForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.game_a_score);
-        scoreView.setText(String.valueOf(score));
+        scoreGameA.setText(String.valueOf(score));
     }
 
     // Displays the games score for Team B.
 
     public void displayGamesForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.game_b_score);
-        scoreView.setText(String.valueOf(score));
+        scoreGameB.setText(String.valueOf(score));
     }
 
     /**
@@ -433,16 +445,14 @@ public class MainActivity extends AppCompatActivity {
 
     //Displays the sets score for Team A.
     public void displaySetsForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.set_a_score);
-        scoreView.setText(String.valueOf(score));
+        scoreSetA.setText(String.valueOf(score));
     }
 
 
     //Displays the sets score for Team B.
 
     public void displaySetsForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.set_b_score);
-        scoreView.setText(String.valueOf(score));
+        scoreSetB.setText(String.valueOf(score));
     }
 
     /**
@@ -491,11 +501,9 @@ public class MainActivity extends AppCompatActivity {
     //set the alert messages textview to visible
     public void alertVisible(String team) {
         if (team.equals("A")) {
-            TextView alertView = (TextView) findViewById(R.id.team_a_alerts);
-            alertView.setVisibility(alertView.VISIBLE);
+            alertViewA.setVisibility(alertViewA.VISIBLE);
         } else {
-            TextView alertView = (TextView) findViewById(R.id.team_b_alerts);
-            alertView.setVisibility(alertView.VISIBLE);
+            alertViewB.setVisibility(alertViewB.VISIBLE);
         }
     }
 
@@ -503,11 +511,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void alertInvisible(String team) {
         if (team.equals("A")) {
-            TextView alertView = (TextView) findViewById(R.id.team_a_alerts);
-            alertView.setVisibility(alertView.INVISIBLE);
+            alertViewA.setVisibility(alertViewA.INVISIBLE);
         } else {
-            TextView alertView = (TextView) findViewById(R.id.team_b_alerts);
-            alertView.setVisibility(alertView.INVISIBLE);
+            alertViewB.setVisibility(alertViewB.INVISIBLE);
         }
     }
 
@@ -518,46 +524,38 @@ public class MainActivity extends AppCompatActivity {
 
     //Disable point buttons
     public void disablePointButtons() {
-        Button buttonA = (Button) findViewById(R.id.point_button_a);
-        buttonA.setEnabled(false);
-        Button buttonB = (Button) findViewById(R.id.point_button_b);
-        buttonB.setEnabled(false);
+        buttonPointA.setEnabled(false);
+        buttonPointB.setEnabled(false);
     }
 
     //Enable point buttons
 
     public void enablePointButtons() {
-        Button buttonA = (Button) findViewById(R.id.point_button_a);
-        buttonA.setEnabled(true);
-        Button buttonB = (Button) findViewById(R.id.point_button_b);
-        buttonB.setEnabled(true);
+        buttonPointA.setEnabled(true);
+        buttonPointB.setEnabled(true);
     }
 
     //Disable New Game button
 
     public void disableNewGameButton() {
-        Button buttonA = (Button) findViewById(R.id.new_game_button);
-        buttonA.setEnabled(false);
+        buttonGame.setEnabled(false);
     }
 
     //Enable New Game button
 
     public void enableNewGameButton() {
-        Button buttonA = (Button) findViewById(R.id.new_game_button);
-        buttonA.setEnabled(true);
+        buttonGame.setEnabled(true);
     }
 
     //Disable New Set button
 
     public void disableNewSetButton() {
-        Button buttonA = (Button) findViewById(R.id.new_set_button);
-        buttonA.setEnabled(false);
+        buttonSet.setEnabled(false);
     }
 
     //Enable New Set button
 
     public void enableNewSetButton() {
-        Button buttonA = (Button) findViewById(R.id.new_set_button);
-        buttonA.setEnabled(true);
+        buttonSet.setEnabled(true);
     }
 }
