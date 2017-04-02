@@ -9,6 +9,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    static final String SCORE_TEAM_A = "scoreTeamA";
+    static final String SCORE_TEAM_B = "scoreTeamB";
+    static final String GAMES_SCORE_TEAM_A = "gamesScoreTeamA";
+    static final String GAMES_SCORE_TEAM_B = "gamesScoreTeamB";
+    static final String SET_SCORE_TEAM_A = "setScoreTeamA";
+    static final String SET_SCORE_TEAM_B = "setScoreTeamB";
+    static final String VISIBILITY_A = "visibilityA";
+    static final String VISIBILITY_B = "visibilityB";
+    static final String ALERT_MESSAGE = "alertMessage";
+    static final String GAME_BUTTON_ENABLE = "gameButtonEnable";
+    static final String SET_BUTTON_ENABLE = "setButtonEnable";
+    static final String POINT_BUTTON_ENABLE = "pointButtonEnable";
     int scoreTeamA = 0;
     int scoreTeamB = 0;
     int gamesScoreTeamA = 0;
@@ -17,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     int setScoreTeamB = 0;
     int numTotalSets = 3;
     String alertMessage = "";
-
     Button buttonGame;
     Button buttonSet;
     Button buttonPointA;
@@ -30,19 +41,6 @@ public class MainActivity extends AppCompatActivity {
     TextView scoreGameB;
     TextView scoreSetA;
     TextView scoreSetB;
-
-    static final String SCORE_TEAM_A="scoreTeamA";
-    static final String SCORE_TEAM_B="scoreTeamB";
-    static final String GAMES_SCORE_TEAM_A="gamesScoreTeamA";
-    static final String GAMES_SCORE_TEAM_B="gamesScoreTeamB";
-    static final String SET_SCORE_TEAM_A="setScoreTeamA";
-    static final String SET_SCORE_TEAM_B="setScoreTeamB";
-    static final String VISIBILITY_A="visibilityA";
-    static final String VISIBILITY_B="visibilityB";
-    static final String ALERT_MESSAGE="alertMessage";
-    static final String GAME_BUTTON_ENABLE="gameButtonEnable";
-    static final String SET_BUTTON_ENABLE="setButtonEnable";
-    static final String POINT_BUTTON_ENABLE="pointButtonEnable";
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -58,25 +56,21 @@ public class MainActivity extends AppCompatActivity {
         } else {
             visibilityA = false;
         }
-
         if (alertViewB.getVisibility() == View.VISIBLE) {
             visibilityB = true;
         } else {
             visibilityB = false;
         }
-
         if (buttonGame.isEnabled()) {
             gameButtonEnable = true;
         } else {
             gameButtonEnable = false;
         }
-
         if (buttonSet.isEnabled()) {
             setButtonEnable = true;
         } else {
             setButtonEnable = false;
         }
-
         if (buttonPointA.isEnabled()) {
             pointButtonEnable = true;
         } else {
@@ -94,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt(SET_SCORE_TEAM_A, setScoreTeamA);
         savedInstanceState.putInt(SET_SCORE_TEAM_B, setScoreTeamB);
         savedInstanceState.putString(ALERT_MESSAGE, alertMessage);
-
     }
 
     @Override
@@ -114,14 +107,13 @@ public class MainActivity extends AppCompatActivity {
         boolean gameButtonEnable = savedInstanceState.getBoolean(GAME_BUTTON_ENABLE);
         boolean setButtonEnable = savedInstanceState.getBoolean(SET_BUTTON_ENABLE);
         boolean pointButtonEnable = savedInstanceState.getBoolean(POINT_BUTTON_ENABLE);
-
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
         displayGamesForTeamA(gamesScoreTeamA);
         displayGamesForTeamB(gamesScoreTeamB);
         displaySetsForTeamA(setScoreTeamA);
         displaySetsForTeamB(setScoreTeamB);
-        switch (alertMessage){
+        switch (alertMessage) {
             case "Deuce":
                 displayAlertForTeamA(alertMessage);
                 displayAlertForTeamB(alertMessage);
@@ -133,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
                 displayAlertForTeamB(alertMessage);
                 break;
         }
-
         if (visibilityA) {
             if (alertMessage.equals(getString(R.string.game_winner)) || alertMessage.equals(getString(R.string.set_winner)) || alertMessage.equals(getString(R.string.match_winner))) {
                 displayAlertForTeamA(alertMessage);
@@ -154,13 +145,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             disableNewGameButton();
         }
-
         if (setButtonEnable) {
             enableNewSetButton();
         } else {
             disableNewSetButton();
         }
-
         if (pointButtonEnable) {
             enablePointButtons();
         } else {
@@ -172,7 +161,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         buttonGame = (Button) findViewById(R.id.new_game_button);
         buttonSet = (Button) findViewById(R.id.new_set_button);
         buttonPointA = (Button) findViewById(R.id.point_button_a);
@@ -185,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
         scoreGameB = (TextView) findViewById(R.id.game_b_score);
         scoreSetA = (TextView) findViewById(R.id.set_a_score);
         scoreSetB = (TextView) findViewById(R.id.set_b_score);
-
         if (savedInstanceState == null) {
             disableNewSetButton();
             disableNewGameButton();
@@ -197,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
     public void pointForTeamA(View view) {
         String team = getString(R.string.a);
         if (scoreTeamA < 40) {
-
             switch (scoreTeamA) {
                 case 0:
                     scoreTeamA = 15;
@@ -209,13 +195,10 @@ public class MainActivity extends AppCompatActivity {
                     scoreTeamA = 40;
                     break;
             }
-
             displayForTeamA(scoreTeamA);
-
             if (scoreTeamA == 40 && scoreTeamB == 40) {
                 displayDeuce();
             }
-
         } else if (alertMessage.equals("")) {
 
             if (scoreTeamB < 40) {
@@ -238,7 +221,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void pointForTeamB(View view) {
         String team = getString(R.string.b);
-
         if (scoreTeamB < 40) {
             switch (scoreTeamB) {
                 case 0:
@@ -251,16 +233,12 @@ public class MainActivity extends AppCompatActivity {
                     scoreTeamB = 40;
                     break;
             }
-
             displayForTeamB(scoreTeamB);
-
             if (scoreTeamA == 40 && scoreTeamB == 40) {
                 displayDeuce();
             }
         } else if (alertMessage.equals("")) {
-
             alertVisible(team);
-
             if (scoreTeamA < 40) {
                 gameWinner(team);
             } else {
@@ -270,14 +248,12 @@ public class MainActivity extends AppCompatActivity {
             alertMessage = getString(R.string.advantage_b);
             displayAlertForTeamB(alertMessage);
             alertInvisible(getString(R.string.a));
-
         } else if (alertMessage.equals(getString(R.string.advantage_a))) {
             displayDeuce();
         } else {
             gameWinner(team);
         }
     }
-
 
     //Show messages on screen - Replaced by sending mail.
 
@@ -287,7 +263,6 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(context, message, duration);
         toast.show();
     }
-
 
     /**
      * Displays the given score for Team A.
@@ -327,10 +302,9 @@ public class MainActivity extends AppCompatActivity {
         }
         disablePointButtons();
         enableNewGameButton();
-        String message = getString(R.string.winner_message,gameWinner,getString(R.string.game));
+        String message = getString(R.string.winner_message, gameWinner, getString(R.string.game));
         showMessage(message);
         updateGamesScore(gameWinner);
-
         if (gamesScoreTeamA >= 6 || gamesScoreTeamB >= 6) {
             checkGamesScore();
         } else {
@@ -387,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
         disablePointButtons();
         disableNewGameButton();
         enableNewSetButton();
-        String message = getString(R.string.winner_message,setWinner,getString(R.string.set));
+        String message = getString(R.string.winner_message, setWinner, getString(R.string.set));
         showMessage(message);
         updateSetScore(setWinner);
     }
@@ -432,8 +406,8 @@ public class MainActivity extends AppCompatActivity {
         disablePointButtons();
         disableNewGameButton();
         disableNewSetButton();
-        String message = getString(R.string.winner_message,matchWinner,getString(R.string.match));
-        message=message.toUpperCase();
+        String message = getString(R.string.winner_message, matchWinner, getString(R.string.match));
+        message = message.toUpperCase();
         showMessage(message);
     }
 
@@ -470,20 +444,20 @@ public class MainActivity extends AppCompatActivity {
 
     //Forms message: Press new game button for... and sends to showMessage
 
-    public void showMessageGame(){
-        String str1=getString(R.string.new_game_button);
-        str1=str1.toUpperCase();
-        String str2=getString(R.string.game);
-        showMessage(getString(R.string.press_button_message,str1,str2));
+    public void showMessageGame() {
+        String str1 = getString(R.string.new_game_button);
+        str1 = str1.toUpperCase();
+        String str2 = getString(R.string.game);
+        showMessage(getString(R.string.press_button_message, str1, str2));
     }
 
     //Forms message: Press new set button for... and sends to showMessage
 
-    public void showMessageSet(){
-        String str1=getString(R.string.new_set_button);
-        str1=str1.toUpperCase();
-        String str2=getString(R.string.set);
-        showMessage(getString(R.string.press_button_message,str1,str2));
+    public void showMessageSet() {
+        String str1 = getString(R.string.new_set_button);
+        str1 = str1.toUpperCase();
+        String str2 = getString(R.string.set);
+        showMessage(getString(R.string.press_button_message, str1, str2));
     }
 
     /**

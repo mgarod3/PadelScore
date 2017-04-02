@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Padel Score</string>
     <string name="team_a">Team A</string>
@@ -17,10 +18,9 @@
     <string name="deuce">Deuce</string>
     <string name="advantage_a">Advantage A</string>
     <string name="advantage_b">Advantage B</string>
-    <string name="press_button_message">Press %s button to start a new %s.</string>
+    <string name="press_button_message">Press %1$s button to start a new %2$s.</string>
     <string name="game">game</string>
     <string name="set">set</string>
     <string name="match">match!!!</string>
-    <string name="winner_message">Team %s wins %s</string>
-
+    <string name="winner_message">Team %1$s wins %2$s</string>
 </resources>
