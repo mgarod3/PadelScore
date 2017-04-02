@@ -9,4 +9,18 @@
     <string name="new_match_button">New Match</string>
     <string name="games">Games</string>
     <string name="sets">Sets</string>
+    <string name="game_winner">Game winner</string>
+    <string name="set_winner">Set winner</string>
+    <string name="match_winner">MATCH WINNER</string>
+    <string name="a">A</string>
+    <string name="b">B</string>
+    <string name="deuce">Deuce</string>
+    <string name="advantage_a">Advantage A</string>
+    <string name="advantage_b">Advantage B</string>
+    <string name="press_button_message">Press %s button to start a new %s.</string>
+    <string name="game">game</string>
+    <string name="set">set</string>
+    <string name="match">match!!!</string>
+    <string name="winner_message">Team %s wins %s</string>
+
 </resources>
