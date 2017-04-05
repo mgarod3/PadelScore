@@ -7,7 +7,6 @@
     android:background="@drawable/padel"
     tools:context="com.example.android.padelscore.MainActivity">
 
-
     <!-- Main Vertical Layout -->
 
     <LinearLayout style="@style/PrincipalLayout">
@@ -52,7 +51,6 @@
             <View
                 android:id="@+id/myview"
                 style="@style/MyViewVertical">
-
             </View>
 
             <!-- Vertical Layout Score - B Team Name and Score and Point Button -->
@@ -119,16 +117,13 @@
 
             <LinearLayout style="@style/LayoutGame">
 
-
                 <TextView
                     style="@style/GameSetTitles"
                     android:text="@string/games" />
 
-
                 <View
                     android:id="@+id/myview4"
                     style="@style/MyViewHorizontal">
-
                 </View>
 
 
@@ -144,7 +139,6 @@
                     <View
                         android:id="@+id/myview2"
                         style="@style/MyViewVerticalSmall">
-
                     </View>
 
                     <TextView
@@ -153,23 +147,19 @@
                         android:text="@string/initial_score" />
 
                 </LinearLayout>
-
             </LinearLayout>
 
             <!-- Vertical Layout For Set TextView and Score -->
 
             <LinearLayout style="@style/LayoutSet">
 
-
                 <TextView
                     style="@style/GameSetTitles"
                     android:text="@string/sets" />
 
-
                 <View
                     android:id="@+id/myview5"
                     style="@style/MyViewHorizontal">
-
                 </View>
 
 
@@ -185,17 +175,15 @@
                     <View
                         android:id="@+id/myview3"
                         style="@style/MyViewVerticalSmall">
-
                     </View>
 
                     <TextView
                         android:id="@+id/set_b_score"
                         style="@style/GameSetScore"
-                        android:text="@string/initial_score" />
+                        android:text="@string/initial_score"/>
 
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </ScrollView>

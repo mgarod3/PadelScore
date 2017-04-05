@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Marcador de pádel</string>
+    <string name="advantage_a">Ventaja A</string>
+    <string name="advantage_b">Ventaja B</string>
+    <string name="deuce">Iguales</string>
+    <string name="game">juego</string>
+    <string name="game_winner">Gana juego</string>
+    <string name="games">Juegos</string>
+    <string name="match">partido!</string>
+    <string name="match_winner">VENCEDOR</string>
+    <string name="new_game_button">Nuevo juego</string>
+    <string name="new_match_button">Nuevo partido</string>
+    <string name="new_set_button">Nuevo set</string>
+    <string name="point_button">Punto</string>
+    <string name="press_button_message">Pulsa el botón %1$s para empezar otro %2$s.</string>
+    <string name="set">set</string>
+    <string name="set_winner">Gana set</string>
+    <string name="sets">Sets</string>
+    <string name="team_a">Equipo A</string>
+    <string name="team_b">Equipo B</string>
+    <string name="winner_message">%2$s para el equipo %1$s</string>
+</resources>

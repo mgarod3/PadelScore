@@ -113,17 +113,13 @@ public class MainActivity extends AppCompatActivity {
         displayGamesForTeamB(gamesScoreTeamB);
         displaySetsForTeamA(setScoreTeamA);
         displaySetsForTeamB(setScoreTeamB);
-        switch (alertMessage) {
-            case "Deuce":
-                displayAlertForTeamA(alertMessage);
-                displayAlertForTeamB(alertMessage);
-                break;
-            case "Advantage A":
-                displayAlertForTeamA(alertMessage);
-                break;
-            case "Advantage B":
-                displayAlertForTeamB(alertMessage);
-                break;
+        if (alertMessage.equals(getString(R.string.deuce))){
+            displayAlertForTeamA(alertMessage);
+            displayAlertForTeamB(alertMessage);
+        }else if (alertMessage.equals(getString(R.string.advantage_a))){
+            displayAlertForTeamA(alertMessage);
+        }else{
+            displayAlertForTeamB(alertMessage);
         }
         if (visibilityA) {
             if (alertMessage.equals(getString(R.string.game_winner)) || alertMessage.equals(getString(R.string.set_winner)) || alertMessage.equals(getString(R.string.match_winner))) {

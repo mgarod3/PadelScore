@@ -3,7 +3,7 @@
     <string name="app_name">Padel Score</string>
     <string name="team_a">Team A</string>
     <string name="team_b">Team B</string>
-    <string name="initial_score">0</string>
+    <string name="initial_score" translatable="false">0</string>
     <string name="point_button">Point</string>
     <string name="new_game_button">New Game</string>
     <string name="new_set_button">New Set</string>
@@ -13,8 +13,8 @@
     <string name="game_winner">Game winner</string>
     <string name="set_winner">Set winner</string>
     <string name="match_winner">MATCH WINNER</string>
-    <string name="a">A</string>
-    <string name="b">B</string>
+    <string name="a" translatable="false">A</string>
+    <string name="b" translatable="false">B</string>
     <string name="deuce">Deuce</string>
     <string name="advantage_a">Advantage A</string>
     <string name="advantage_b">Advantage B</string>
